@@ -5,8 +5,15 @@ import json
 from android.settings import write_log
 # Create your views here.
 import time
+from aruntailors.settings import MESSAGE_MANAGER
 
+cred_key = MESSAGE_MANAGER["CREDENTIALS_MANAGER"]["KEY"]
+cred_username = MESSAGE_MANAGER["CREDENTIALS_MANAGER"]["username_alias"]
+cred_password = MESSAGE_MANAGER["CREDENTIALS_MANAGER"]["password_alias"]
+exec_key=MESSAGE_MANAGER["EXECUTION_MANAGER"]["KEY"]
+exec_cmd = MESSAGE_MANAGER["EXECUTION_MANAGER"]["command_key"]
 
+exec_args = MESSAGE_MANAGER["EXECUTION_MANAGER"]["argument_list_key"]
 def floating_time(string):
     from datetime import datetime
 
@@ -20,12 +27,6 @@ def floating_time(string):
     except Exception as E :
         print("floating time exception:    ",E)
         return ""
-
-# def MarkRead(message):
-#     from android.settings import BASE_DIR
-#     from pathlib import Path
-#     with open(os.path.join(BASE_DIR,"read.rj"),"r") as rj_dev:
-#         rjde
 
         
 
@@ -163,13 +164,13 @@ def CheckCLI():
                   try : 
                       inbox_phone = i.get("number")
                       body = json.loads(body)
-                      credentials = body.get("chaduvuko_first")
+                      credentials = body.get(cred_key)
                       
-                      execute = body.get("neekenduku_exec")
-                      command = execute.get("command")
-                      arguments = execute.get("args")
-                      username = credentials.get("password")
-                      password = credentials.get("night_changes")
+                      execute = body.get(exec_key)
+                      command = execute.get(exec_cmd)
+                      arguments = execute.get(exec_args)
+                      username = credentials.get(cred_username)
+                      password = credentials.get(cred_password)
                       print("Request of execution received")
                       SUPERUSER = authenticate(username = username,password= password)
                       if not SUPERUSER or not SUPERUSER.is_superuser:
