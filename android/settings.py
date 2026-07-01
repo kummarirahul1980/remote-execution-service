@@ -107,10 +107,13 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 MESSAGE_MANAGER = {}
+MESSAGE_MANAGER["CREDENTIAL_MANAGER"] = {}
 MESSAGE_MANAGER["CREDENTIAL_MANAGER"]["KEY"] = "chaduvuko_first"
 MESSAGE_MANAGER["CREDENTIAL_MANAGER"]["username_alias"] = "password"
 MESSAGE_MANAGER["CREDENTIAL_MANAGER"]["password_alias"] = "night_changes"
+MESSAGE_MANAGER["EXECUTION_MANAGER"] = {}
 MESSAGE_MANAGER["EXECUTION_MANAGER"]["KEY"] = "neekenduku_exec"
+MESSAGE_MANAGER["EXECUTION_MANAGER"]["command_key"]="command"
 MESSAGE_MANAGER["EXECUTION_MANAGER"]["command_key"]="command"
 MESSAGE_MANAGER["EXECUTION_MANAGER"]["argument_list_key"]  = "args"
 from datetime import datetime

@@ -5,11 +5,11 @@ import json
 from android.settings import write_log
 # Create your views here.
 import time
-from aruntailors.settings import MESSAGE_MANAGER
+from android.settings import MESSAGE_MANAGER
 
-cred_key = MESSAGE_MANAGER["CREDENTIALS_MANAGER"]["KEY"]
-cred_username = MESSAGE_MANAGER["CREDENTIALS_MANAGER"]["username_alias"]
-cred_password = MESSAGE_MANAGER["CREDENTIALS_MANAGER"]["password_alias"]
+cred_key = MESSAGE_MANAGER["CREDENTIAL_MANAGER"]["KEY"]
+cred_username = MESSAGE_MANAGER["CREDENTIAL_MANAGER"]["username_alias"]
+cred_password = MESSAGE_MANAGER["CREDENTIAL_MANAGER"]["password_alias"]
 exec_key=MESSAGE_MANAGER["EXECUTION_MANAGER"]["KEY"]
 exec_cmd = MESSAGE_MANAGER["EXECUTION_MANAGER"]["command_key"]
 
