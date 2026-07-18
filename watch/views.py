@@ -1,3 +1,6 @@
+
+from android import settings
+
 from django.shortcuts import render
 import subprocess
 import os
@@ -152,7 +155,12 @@ def CheckCLI():
           now = time.time()
           for i in formatted_json:
             if i.get("type") == "inbox":
-              if now-(floating_time(i["received"])) < 20:
+               time_difference =  now-(floating_time(i["received"]))
+               time_difference = -1 * time_difference if time_difference <0 else time_difference
+               if time_difference< 20:
+                  print("time diff",time_difference)
+                  print(i["number"])
+                  print(now,"        ",floating_time(i["received"]))
 
 
                   body = i.get("body")
@@ -197,6 +205,13 @@ def CheckCLI():
                       #raise e
                       print("The unknown error occurred")
                       print(e)
+
+               else : 
+                   print("Timed out.",i["number"])
+                   print(now,i["received"] ,time_difference,)
+                   print(now)
+                   print(floating_time(i['received']))
+                   
     except json.JSONDecodeError:
         print("Invalid format.JSONDecodeError")
     except Exception as e:

@@ -130,3 +130,7 @@ def write_log(log_string: str , *args):
             f"{timestamp}\n"
             f"{log_string}\n\n"
         )
+
+
+
+DEVELOPER_MODE:bool = FALSE
